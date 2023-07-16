@@ -6,11 +6,11 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-   */
-   color: #192a51;
-   align-items: center;
-   background-color: #f5f3f4;
+  /* justify-content: center;*/
+  
+  color: #192a51;
+  align-items: center;
+  background-color: #f5f3f4;
 }
 
 
@@ -88,7 +88,7 @@
   font-size: 18px;
   font-weight: 600;
   box-shadow: 2px 2px 9px -1px grey;
-
+  
 }
 .clearbutton:hover , .createbutton:hover {
   transform: translatey(1px)
@@ -100,11 +100,99 @@
   height: 40px;
   font-size: 18px;
   font-weight: 600;
-  /* position: absolute;
-  left : 90%; */
   background-color: #a5f92f;
   padding: 0px 20px ;
   box-shadow: 2px 2px 9px -1px grey;
 
   border-radius: 10px;
 }
+
+.albumlistmain{
+  min-height: 60vh;
+  /* border: 1px solid red; */
+  width: 65%;
+  padding: 10px 30px;
+}
+
+.listbuttons{
+  position: relative;
+  display: flex;
+}
+
+.listbuttons h2{
+  font-size: x-large;
+  position: absolute;
+  left: 4%;
+}
+
+.addalbum , .cancelbutton {
+  position: absolute;
+  left: 80%;
+  color: white;
+  border: none;
+  height: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 2px 20px ;
+  box-shadow: 2px 2px 9px -1px grey;
+  border-radius: 10px;
+}
+
+.addalbum:hover , .cancelbutton:hover{
+  transform: translatey(1px);
+}
+
+
+.addalbum{
+  background-color: #a5f92f;
+}
+
+.cancelbutton{
+  background-color: #e5383b;
+}
+
+.albumlist{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+.albums{
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  min-width: 200px;
+  min-height: 140px ;
+  border-radius: 10px;
+  display: flex;
+  margin: 5px 10px;
+  background-color: #d3d3d3;
+  transition: all 0.5s ;
+}
+
+.albums:hover{
+  transition: all 0.5s ;
+  background-color: #00bbf9;
+}
+
+.albums div{
+  margin-top: 5px;
+  border-radius: 10px;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+  background-color: #f5f3f4;
+}
+.albumicon{
+  height: 50px;
+}
+
+
+
