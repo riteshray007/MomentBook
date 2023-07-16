@@ -1,15 +1,27 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+   */
+   color: #192a51;
+   align-items: center;
+   background-color: #f5f3f4;
 }
+
 
 .navbarmaindiv {
   /* border: 1px solid black; */
   width: 100%;
-  height: 55px;
+  height: 8vh;
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #ccd5ae;
+  background-color: rgba(109, 66, 140, 0.682);
 }
 
 .navicon {
@@ -23,4 +35,76 @@
   left: 10%;
   /* font-family: 'Lugrasimo', cursive; */
   font-family: 'Tektur', cursive;
+}
+
+
+.albumformmain{
+  height: 18vh;
+  width: 50%;
+  padding: 0px 20px;
+  padding-top: 10px ;
+  margin: 40px 10px ;
+  text-align: left;
+  border-radius: 20px;
+  background-color: #d3d3d3;
+  box-shadow: 2px 2px 9px -1px grey;
+}
+
+.albumformheading{
+  margin: 5px 0px 0px 10px  ;
+  font-size: 24px;
+}
+
+
+.inputNbuttons{
+  margin-top: 10px;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+
+.albumname{
+  width: 60%;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #f5f3f4;
+  outline: none;
+}
+
+.clearbutton{
+  /* position: absolute;
+  left: 70%; */
+  height: 40px ;
+  padding: 0px 20px ;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #e5383b;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 2px 2px 9px -1px grey;
+
+}
+.clearbutton:hover , .createbutton:hover {
+  transform: translatey(1px)
+}
+
+.createbutton{
+  color: white;
+  border: none;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  /* position: absolute;
+  left : 90%; */
+  background-color: #a5f92f;
+  padding: 0px 20px ;
+  box-shadow: 2px 2px 9px -1px grey;
+
+  border-radius: 10px;
 }
