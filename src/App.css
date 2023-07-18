@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   /* justify-content: center;*/
-  
+  min-height: 100vh;
   color: #192a51;
   align-items: center;
   background-color: #f5f3f4;
@@ -194,5 +194,119 @@
   height: 50px;
 }
 
+.imagelistmain{
+  box-sizing: border-box;
+  height: 90vh;
+  width: 70%;
+  /* background-color: white; */
+  
+}
 
+.imagelistheading{
+  display: flex;
+  /* border: 1px solid rosybrown; */
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-top: 70px;
+}
+
+.imagelistheading h2{
+  position: absolute;
+  left: 10%;
+}
+
+.searchbutton{
+  height: 30px;
+  position: absolute;
+  right: 16%;
+}
+
+.backbutton{
+  height: 45px;
+  -webkit-filter: drop-shadow(2px 2px 9px -1px grey);
+  filter: dropShadow(22px 22px 29px 31px grey);
+  position: absolute;
+  left: 1%;
+}
+
+.addimagebutton{
+  color: white;
+  border: none;
+  height: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 2px 20px ;
+  box-shadow: 2px 2px 9px -1px grey;
+  border-radius: 10px;
+  position: absolute;
+  right: 0%;
+}
+
+
+.addimagebutton{
+  background-color: #a5f92f;
+}
+
+.searchbar{
+  position: absolute;
+  left: 52%;
+  border-radius: 10px;
+  height: 27px;
+  width: 220px;
+  padding: 5px 10px;
+  font-size: 18px;
+
+}
+
+.imagefromalbum{
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  min-width: 200px;
+  min-height: 140px ;
+  border-radius: 10px;
+  display: flex;
+  margin: 5px 10px;
+  background-color: #d3d3d3;
+  transition: all 0.5s ;
+}
+
+.imagefromalbum{
+  height: 100%
+}
+
+.imageitem{
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  min-width: 200px;
+  min-height: 150px ;
+  max-height: 160px;
+  border-radius: 10px;
+  display: flex;
+  margin: 5px 10px;
+  background-color: #d3d3d3;
+  transition: all 0.5s ; 
+  padding-bottom: -10px;
+}
+
+.imageitem  div{
+  margin-top: 5px;
+  border-radius: 10px;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75%;
+  background-color: #f5f3f4;
+  background-position: center;
+  background-size: cover;
+}
 

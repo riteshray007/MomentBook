@@ -1,15 +1,19 @@
 import React,{useRef} from 'react'
 
-export default function AlbumForm() {
-      const [albumname , albumref] = useRef();
+export default function AlbumForm({addalbums}) {
+
+      const albumref = useRef();
       return (
             <div className='albumformmain' >
                   <h1 className='albumformheading' > Create an album </h1>
-                  <form className='inputNbuttons' >
-                        <input type='text' placeholder='Album Name' className='albumname' />
+                  <div className='inputNbuttons' >
+                        <input type='text' ref={albumref}  placeholder='Album Name' className='albumname' />
                         <button className='clearbutton' >Clear</button>
-                        <button type='submit' className='createbutton' > Create </button>
-                  </form>
+                        <button  onClick={()=>{
+                              addalbums(albumref.current.value); 
+                              albumref.current.value = '';
+                        }}  className='createbutton' > Create </button>
+                  </div>
             </div>
       )
 }
