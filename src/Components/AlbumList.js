@@ -26,7 +26,7 @@ export default function AlbumList({setimagecheck , setimagelistid }) {
       }, [])
 
       async function addalbums(id){
-            await setDoc(doc(db, "albums", id), {id , createdOn : Date.now() });
+            if(id) await setDoc(doc(db, "albums", id), {id , createdOn : Date.now() });
       }
 
       function albumclicklistener(id){

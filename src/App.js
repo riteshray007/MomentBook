@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Navbar/>
       
-      { imagelistcheck ?  <ImagesList albumid = {imagelistid}  /> : <AlbumList setimagecheck={setimagecheck} setimagelistid={setimagelistid} /> }
+      { imagelistcheck ?  <ImagesList albumid = {imagelistid} setimagecheck={setimagecheck} /> : <AlbumList setimagecheck={setimagecheck} setimagelistid={setimagelistid} /> }
     </div>
   );
 }

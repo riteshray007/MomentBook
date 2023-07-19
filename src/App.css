@@ -76,25 +76,12 @@
   outline: none;
 }
 
-.clearbutton{
-  /* position: absolute;
-  left: 70%; */
-  height: 40px ;
-  padding: 0px 20px ;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  background-color: #e5383b;
-  font-size: 18px;
-  font-weight: 600;
-  box-shadow: 2px 2px 9px -1px grey;
-  
-}
+
 .clearbutton:hover , .createbutton:hover {
   transform: translatey(1px)
 }
 
-.createbutton{
+.createbutton , .clearbutton{
   color: white;
   border: none;
   height: 40px;
@@ -103,8 +90,10 @@
   background-color: #a5f92f;
   padding: 0px 20px ;
   box-shadow: 2px 2px 9px -1px grey;
-
   border-radius: 10px;
+}
+.clearbutton{
+  background-color: #e5383b;
 }
 
 .albumlistmain{
@@ -196,7 +185,7 @@
 
 .imagelistmain{
   box-sizing: border-box;
-  height: 90vh;
+  min-height: 90vh;
   width: 70%;
   /* background-color: white; */
   
@@ -230,7 +219,7 @@
   left: 1%;
 }
 
-.addimagebutton{
+.addimagebutton , .cancelimagebutton {
   color: white;
   border: none;
   height: 35px;
@@ -241,11 +230,15 @@
   border-radius: 10px;
   position: absolute;
   right: 0%;
+  background-color: #a5f92f;
 }
 
+.cancelimagebutton{
+  background-color: #e5383b;
+}
 
-.addimagebutton{
-  background-color: #a5f92f;
+.addimagebutton:hover , .cancelimagebutton:hover {
+  transform: translatey(1px);
 }
 
 .searchbar{
@@ -300,7 +293,7 @@
 .imageitem  div{
   margin-top: 5px;
   border-radius: 10px;
-  width: 85%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,3 +303,72 @@
   background-size: cover;
 }
 
+.imageformmain{
+  height: 42vh;
+  width: 65%;
+  padding: 0px 20px;
+  padding-top: 10px ;
+  margin: 40px 10px ;
+  text-align: left;
+  border-radius: 20px;
+  background-color: #d3d3d3;
+  box-shadow: 2px 2px 9px -1px grey;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+
+}
+
+
+.imageinputNbuttons{
+  margin-top: 10px;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.imagename{
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #f5f3f4;
+  outline: none;
+}
+.imageurl{
+  width: 80%;
+  margin-top: 18px;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #f5f3f4;
+  outline: none;
+}
+
+.imageclearbutton , .imagecreatebutton {
+  color: white;
+  border: none;
+  margin-top: 15px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #a5f92f;
+  padding: 0px 20px ;
+  box-shadow: 2px 2px 9px -1px grey;
+  border-radius: 10px;
+}
+
+.imageclearbutton{
+  background-color: #e5383b;
+  /* display: inline; */
+}
+
+.hoveredimageitem{
+  background-color: #00bbf9;
+}

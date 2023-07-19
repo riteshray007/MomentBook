@@ -7,7 +7,7 @@ export default function AlbumForm({addalbums}) {
             <div className='albumformmain' >
                   <h1 className='albumformheading' > Create an album </h1>
                   <div className='inputNbuttons' >
-                        <input type='text' ref={albumref}  placeholder='Album Name' className='albumname' />
+                        <input type='text' ref={albumref}   placeholder='Album Name' className='albumname' />
                         <button className='clearbutton' >Clear</button>
                         <button  onClick={()=>{
                               addalbums(albumref.current.value); 
