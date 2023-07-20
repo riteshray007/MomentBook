@@ -3,6 +3,8 @@ import Imageform from './Imageform';
 import { db } from '../firebaseinit';
 import { updateDoc, doc, onSnapshot, getDoc } from 'firebase/firestore';
 
+const Defaultsrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJYMIg4H1MKoEBPkF1kWQ7ENkm2gXsgF8bsg&usqp=CAU';
+
 export default function ImagesList({ albumid, setimagecheck }) {
 
       const [searchbar, setsearchbar] = useState(false)
@@ -10,8 +12,8 @@ export default function ImagesList({ albumid, setimagecheck }) {
       const searchref = useRef();
       const [imagelist, setimagelist] = useState([])
       const [hoveron, sethoveron] = useState(null);
-      const [ editform , seteditform ] = useState(false);
-      const [formlistdata , setformlistdata] = useState({})
+      const [editform, seteditform] = useState(false);
+      const [formlistdata, setformlistdata] = useState({})
 
 
 
@@ -23,6 +25,16 @@ export default function ImagesList({ albumid, setimagecheck }) {
             });
       }, [])
 
+      useEffect(() => {
+            let allimages = document.querySelectorAll('img');
+            for (let image of allimages) {
+                  image.addEventListener('error', function handleError() {
+                        image.src = Defaultsrc;
+                        console.log(image.src);
+                  });
+            }
+      }, [imagelist])
+
       function sethoverid(id) {
             sethoveron(id);
       }
@@ -32,10 +44,10 @@ export default function ImagesList({ albumid, setimagecheck }) {
       // }, [hoveron])
 
 
-      function addimage(name, url , index ) {
+      function addimage(name, url, index) {
             if (name && url) {
                   let templist;
-                  if(editform){
+                  if (editform) {
                         templist = [...imagelist]
                         templist[index].name = name;
                         templist[index].url = url;
@@ -44,21 +56,21 @@ export default function ImagesList({ albumid, setimagecheck }) {
                         templist = [{ name, url, id: Date.now() }, ...imagelist];
                   }
                   else {
-                        templist = [{ name, url , id : Date.now() }];
+                        templist = [{ name, url, id: Date.now() }];
                   }
                   handleupdate(templist);
             }
       }
 
-      function imageformchecker(){
+      function imageformchecker() {
             setimageformcheck(true);
             seteditform(false);
       }
 
-      function handleedit(id , index ){
+      function handleedit(id, index) {
             setimageformcheck(true);
             seteditform(true);
-            setformlistdata({id , index , name : imagelist[index].name , url : imagelist[index].url  })
+            setformlistdata({ id, index, name: imagelist[index].name, url: imagelist[index].url })
       }
 
       async function handleupdate(arr) {
@@ -79,7 +91,7 @@ export default function ImagesList({ albumid, setimagecheck }) {
       return (
             <div className='imagelistmain' >
 
-                  {imageformcheck ? <Imageform addimage={addimage}  editform={editform} seteditform={seteditform} formlistdata={formlistdata} /> : null}
+                  {imageformcheck ? <Imageform addimage={addimage} editform={editform} seteditform={seteditform} formlistdata={formlistdata} /> : null}
 
                   <div className='imagelistheading'>
 
@@ -112,19 +124,19 @@ export default function ImagesList({ albumid, setimagecheck }) {
                   <ul className='albumlist' >
                         {
                               imagelist ?
-                                    imagelist.map((alb , i ) => {
+                                    imagelist.map((alb, i) => {
                                           return (
-                                                <>
+                                                
                                                       <li key={alb.id} className={` imageitem  ${hoveron == alb.id ? 'hoveredimageitem' : ''}   `}
                                                             onMouseEnter={() => sethoverid(alb.id)}
                                                             onMouseLeave={() => sethoveron('')}
                                                       >
-                                                            <img src='https://cdn-icons-png.flaticon.com/128/4203/4203813.png' alt='editicon' onClick={()=>handleedit(alb.id , i )} />
-                                                            <img src='https://cdn-icons-png.flaticon.com/128/6711/6711573.png' alt='deleteicon' onClick={() => handledelete(alb.id , i )} />
+                                                            <img src='https://cdn-icons-png.flaticon.com/128/4203/4203813.png' alt='editicon' onClick={() => handleedit(alb.id, i)} />
+                                                            <img src='https://cdn-icons-png.flaticon.com/128/6711/6711573.png' alt='deleteicon' onClick={() => handledelete(alb.id, i)} />
                                                             <div className='imagedisplay' style={{ backgroundImage: `url('${alb.url}')` }} ></div>
                                                             <h3 className='imagetitle' > {alb.name} </h3>
                                                       </li>
-                                                </>
+                                                
                                           )
                                     }) :
                                     <h2> no images found in {albumid} </h2>
