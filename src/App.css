@@ -273,6 +273,7 @@
 }
 
 .imageitem{
+  position: relative;
   box-sizing: border-box;
   flex: 1;
   display: flex;
@@ -284,7 +285,7 @@
   max-height: 160px;
   border-radius: 10px;
   display: flex;
-  margin: 5px 10px;
+  margin: 15px 10px;
   background-color: #d3d3d3;
   transition: all 0.5s ; 
   padding-bottom: -10px;
@@ -301,6 +302,22 @@
   background-color: #f5f3f4;
   background-position: center;
   background-size: cover;
+}
+
+.imageitem img{
+  width: 10px;
+  position: absolute;
+  opacity: 0;
+  top: -30px;
+  right: 15px;
+  /* border: 1px solid black; */
+  /* display: none; */
+
+  /* opacity: 0; */
+}
+
+.imageitem img:first-child{
+  right: 60px;
 }
 
 .imageformmain{
@@ -369,6 +386,11 @@
   /* display: inline; */
 }
 
-.hoveredimageitem{
-  background-color: #00bbf9;
+.hoveredimageitem img {
+  /* display: block ; */
+  opacity: 1  ;
+  width: 40px ;
+  top: -10px;
+  transition: top 0.1s ease-in-out ;
+
 }

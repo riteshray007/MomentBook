@@ -48,10 +48,10 @@ export default function AlbumList({setimagecheck , setimagelistid }) {
                         </div>
                         <ul className='albumlist' >
                               {
-                                    albumlist.map((alb) => {
+                                    albumlist.map((alb , i ) => {
                                           return (
                                                 <>
-                                                      <li className='albums' onClick={()=>albumclicklistener(alb.id)} >
+                                                      <li key={i} className='albums' onClick={()=>albumclicklistener(alb.id)} >
                                                             <div>
                                                                   <img src='https://cdn-icons-png.flaticon.com/128/3342/3342207.png' className='albumicon' />
                                                             </div>
