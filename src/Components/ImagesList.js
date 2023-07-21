@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Imageform from './Imageform';
+import Imageviewer from './Imageviewer';
+
 import { db } from '../firebaseinit';
 import { updateDoc, doc, onSnapshot, getDoc } from 'firebase/firestore';
 
@@ -14,9 +16,8 @@ export default function ImagesList({ albumid, setimagecheck }) {
       const [hoveron, sethoveron] = useState(null);
       const [editform, seteditform] = useState(false);
       const [formlistdata, setformlistdata] = useState({})
-
-
-
+      const [imageviewercheck , setimageviewer ] = useState(false);
+      const [imageviewerdata , setimageviewerdata ] = useState('');
 
       useEffect(() => {
             onSnapshot(doc(db, "albums", albumid), (doc) => {
@@ -39,10 +40,6 @@ export default function ImagesList({ albumid, setimagecheck }) {
             sethoveron(id);
       }
 
-      // useEffect(()=>{
-      //       console.log('hover captured' , hoveron);
-      // }, [hoveron])
-
 
       function addimage(name, url, index) {
             if (name && url) {
@@ -62,12 +59,18 @@ export default function ImagesList({ albumid, setimagecheck }) {
             }
       }
 
+      function setviewerdata(index){
+            setimageviewer(true);
+            setimageviewerdata({url : imagelist[index ].url , index });
+      }
+
       function imageformchecker() {
             setimageformcheck(true);
             seteditform(false);
       }
 
-      function handleedit(id, index) {
+      function handleedit(e , id, index) {
+            e.stopPropagation();
             setimageformcheck(true);
             seteditform(true);
             setformlistdata({ id, index, name: imagelist[index].name, url: imagelist[index].url })
@@ -86,12 +89,36 @@ export default function ImagesList({ albumid, setimagecheck }) {
             handleupdate(templist);
       }
 
+      function nextImageinIL(index){
+            if(index >= imagelist.length-1 ){
+                  index = 0;
+                  setimageviewerdata({url : imagelist[index ].url , index });
+            }
+            else{
+                  index++;
+                  setimageviewerdata({url : imagelist[index ].url , index });
+            }
+      }
+
+      function previousimageinIL (index){
+            if(index<=0){
+                  index = imagelist.length-1;
+                  setimageviewerdata({url : imagelist[index ].url , index });
+            }else{
+                  index--;
+                  setimageviewerdata({url : imagelist[index ].url , index });
+            }
+
+      }
+
 
 
       return (
             <div className='imagelistmain' >
 
                   {imageformcheck ? <Imageform addimage={addimage} editform={editform} seteditform={seteditform} formlistdata={formlistdata} /> : null}
+
+                  {imageviewercheck ? <Imageviewer imageurl={imageviewerdata} setimageviewer={setimageviewer} nextImageinIL={nextImageinIL}  previousimageinIL={previousimageinIL} /> : null  }
 
                   <div className='imagelistheading'>
 
@@ -130,8 +157,9 @@ export default function ImagesList({ albumid, setimagecheck }) {
                                                       <li key={alb.id} className={` imageitem  ${hoveron == alb.id ? 'hoveredimageitem' : ''}   `}
                                                             onMouseEnter={() => sethoverid(alb.id)}
                                                             onMouseLeave={() => sethoveron('')}
+                                                            onClick={()=>setviewerdata(i)}
                                                       >
-                                                            <img src='https://cdn-icons-png.flaticon.com/128/4203/4203813.png' alt='editicon' onClick={() => handleedit(alb.id, i)} />
+                                                            <img src='https://cdn-icons-png.flaticon.com/128/4203/4203813.png' alt='editicon' onClick={(e) => handleedit(e , alb.id, i)} />
                                                             <img src='https://cdn-icons-png.flaticon.com/128/6711/6711573.png' alt='deleteicon' onClick={() => handledelete(alb.id, i)} />
                                                             <div className='imagedisplay' style={{ backgroundImage: `url('${alb.url}')` }} ></div>
                                                             <h3 className='imagetitle' > {alb.name} </h3>
