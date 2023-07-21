@@ -3,6 +3,8 @@ import React,{useRef} from 'react'
 export default function AlbumForm({addalbums}) {
 
       const albumref = useRef();
+
+      
       return (
             <div className='albumformmain' >
                   <h1 className='albumformheading' > Create an album </h1>

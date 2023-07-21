@@ -1,7 +1,8 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
+
 .App {
   text-align: center;
   display: flex;
@@ -38,25 +39,25 @@
 }
 
 
-.albumformmain{
+.albumformmain {
   height: 18vh;
   width: 50%;
   padding: 0px 20px;
-  padding-top: 10px ;
-  margin: 40px 10px ;
+  padding-top: 10px;
+  margin: 40px 10px;
   text-align: left;
   border-radius: 20px;
   background-color: #d3d3d3;
   box-shadow: 2px 2px 9px -1px grey;
 }
 
-.albumformheading{
-  margin: 5px 0px 0px 10px  ;
+.albumformheading {
+  margin: 5px 0px 0px 10px;
   font-size: 24px;
 }
 
 
-.inputNbuttons{
+.inputNbuttons {
   margin-top: 10px;
   width: 100%;
   align-items: center;
@@ -65,7 +66,7 @@
   justify-content: space-around;
 }
 
-.albumname{
+.albumname {
   width: 60%;
   height: 40px;
   border-radius: 20px;
@@ -77,44 +78,48 @@
 }
 
 
-.clearbutton:hover , .createbutton:hover {
+.clearbutton:hover,
+.createbutton:hover {
   transform: translatey(1px)
 }
 
-.createbutton , .clearbutton{
+.createbutton,
+.clearbutton {
   color: white;
   border: none;
   height: 40px;
   font-size: 18px;
   font-weight: 600;
   background-color: #a5f92f;
-  padding: 0px 20px ;
+  padding: 0px 20px;
   box-shadow: 2px 2px 9px -1px grey;
   border-radius: 10px;
 }
-.clearbutton{
+
+.clearbutton {
   background-color: #e5383b;
 }
 
-.albumlistmain{
+.albumlistmain {
   min-height: 60vh;
   /* border: 1px solid red; */
   width: 65%;
   padding: 10px 30px;
 }
 
-.listbuttons{
+.listbuttons {
   position: relative;
   display: flex;
 }
 
-.listbuttons h2{
+.listbuttons h2 {
   font-size: x-large;
   position: absolute;
   left: 4%;
 }
 
-.addalbum , .cancelbutton {
+.addalbum,
+.cancelbutton {
   position: absolute;
   left: 80%;
   color: white;
@@ -122,25 +127,26 @@
   height: 35px;
   font-size: 18px;
   font-weight: 600;
-  padding: 2px 20px ;
+  padding: 2px 20px;
   box-shadow: 2px 2px 9px -1px grey;
   border-radius: 10px;
 }
 
-.addalbum:hover , .cancelbutton:hover{
+.addalbum:hover,
+.cancelbutton:hover {
   transform: translatey(1px);
 }
 
 
-.addalbum{
+.addalbum {
   background-color: #a5f92f;
 }
 
-.cancelbutton{
+.cancelbutton {
   background-color: #e5383b;
 }
 
-.albumlist{
+.albumlist {
   list-style: none;
   display: flex;
   justify-content: center;
@@ -148,7 +154,7 @@
   margin-top: 60px;
 }
 
-.albums{
+.albums {
   box-sizing: border-box;
   flex: 1;
   display: flex;
@@ -156,20 +162,20 @@
   align-items: center;
   max-width: 300px;
   min-width: 200px;
-  min-height: 140px ;
+  min-height: 140px;
   border-radius: 10px;
   display: flex;
   margin: 5px 10px;
   background-color: #d3d3d3;
-  transition: all 0.5s ;
+  transition: all 0.5s;
 }
 
-.albums:hover{
-  transition: all 0.5s ;
+.albums:hover {
+  transition: all 0.5s;
   background-color: #00bbf9;
 }
 
-.albums div{
+.albums div {
   margin-top: 5px;
   border-radius: 10px;
   width: 85%;
@@ -179,19 +185,20 @@
   height: 70%;
   background-color: #f5f3f4;
 }
-.albumicon{
+
+.albumicon {
   height: 50px;
 }
 
-.imagelistmain{
+.imagelistmain {
   box-sizing: border-box;
   min-height: 90vh;
   width: 70%;
   /* background-color: white; */
-  
+
 }
 
-.imagelistheading{
+.imagelistheading {
   display: flex;
   /* border: 1px solid rosybrown; */
   align-items: center;
@@ -200,18 +207,18 @@
   margin-top: 70px;
 }
 
-.imagelistheading h2{
+.imagelistheading h2 {
   position: absolute;
   left: 10%;
 }
 
-.searchbutton{
+.searchbutton {
   height: 30px;
   position: absolute;
   right: 16%;
 }
 
-.backbutton{
+.backbutton {
   height: 45px;
   -webkit-filter: drop-shadow(2px 2px 9px -1px grey);
   filter: dropShadow(22px 22px 29px 31px grey);
@@ -219,13 +226,14 @@
   left: 1%;
 }
 
-.addimagebutton , .cancelimagebutton {
+.addimagebutton,
+.cancelimagebutton {
   color: white;
   border: none;
   height: 35px;
   font-size: 18px;
   font-weight: 600;
-  padding: 2px 20px ;
+  padding: 2px 20px;
   box-shadow: 2px 2px 9px -1px grey;
   border-radius: 10px;
   position: absolute;
@@ -233,15 +241,16 @@
   background-color: #a5f92f;
 }
 
-.cancelimagebutton{
+.cancelimagebutton {
   background-color: #e5383b;
 }
 
-.addimagebutton:hover , .cancelimagebutton:hover {
+.addimagebutton:hover,
+.cancelimagebutton:hover {
   transform: translatey(1px);
 }
 
-.searchbar{
+.searchbar {
   position: absolute;
   left: 52%;
   border-radius: 10px;
@@ -252,7 +261,7 @@
 
 }
 
-.imagefromalbum{
+.imagefromalbum {
   box-sizing: border-box;
   flex: 1;
   display: flex;
@@ -260,19 +269,19 @@
   align-items: center;
   max-width: 300px;
   min-width: 200px;
-  min-height: 140px ;
+  min-height: 140px;
   border-radius: 10px;
   display: flex;
   margin: 5px 10px;
   background-color: #d3d3d3;
-  transition: all 0.5s ;
+  transition: all 0.5s;
 }
 
-.imagefromalbum{
+.imagefromalbum {
   height: 100%
 }
 
-.imageitem{
+.imageitem {
   position: relative;
   box-sizing: border-box;
   flex: 1;
@@ -281,17 +290,17 @@
   align-items: center;
   max-width: 300px;
   min-width: 200px;
-  min-height: 150px ;
+  min-height: 150px;
   max-height: 160px;
   border-radius: 10px;
   display: flex;
   margin: 15px 10px;
   background-color: #d3d3d3;
-  transition: all 0.5s ; 
+  transition: all 0.5s;
   padding-bottom: -10px;
 }
 
-.imageitem  div{
+.imageitem div {
   margin-top: 5px;
   border-radius: 10px;
   width: 90%;
@@ -304,7 +313,7 @@
   background-size: cover;
 }
 
-.imageitem img{
+.imageitem img {
   width: 10px;
   position: absolute;
   opacity: 0;
@@ -316,16 +325,16 @@
   /* opacity: 0; */
 }
 
-.imageitem img:first-child{
+.imageitem img:first-child {
   right: 60px;
 }
 
-.imageformmain{
+.imageformmain {
   height: 42vh;
   width: 65%;
   padding: 0px 20px;
-  padding-top: 10px ;
-  margin: 40px 10px ;
+  padding-top: 10px;
+  margin: 40px 10px;
   text-align: left;
   border-radius: 20px;
   background-color: #d3d3d3;
@@ -337,7 +346,7 @@
 }
 
 
-.imageinputNbuttons{
+.imageinputNbuttons {
   margin-top: 10px;
   width: 100%;
   align-items: center;
@@ -346,7 +355,8 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.imagename{
+
+.imagename {
   width: 80%;
   height: 40px;
   border-radius: 20px;
@@ -356,7 +366,8 @@
   background-color: #f5f3f4;
   outline: none;
 }
-.imageurl{
+
+.imageurl {
   width: 80%;
   margin-top: 18px;
   height: 40px;
@@ -368,7 +379,8 @@
   outline: none;
 }
 
-.imageclearbutton , .imagecreatebutton {
+.imageclearbutton,
+.imagecreatebutton {
   color: white;
   border: none;
   margin-top: 15px;
@@ -376,21 +388,64 @@
   font-size: 18px;
   font-weight: 600;
   background-color: #a5f92f;
-  padding: 0px 20px ;
+  padding: 0px 20px;
   box-shadow: 2px 2px 9px -1px grey;
   border-radius: 10px;
 }
 
-.imageclearbutton{
+.imageclearbutton {
   background-color: #e5383b;
   /* display: inline; */
 }
 
 .hoveredimageitem img {
-  /* display: block ; */
-  opacity: 1  ;
-  width: 40px ;
+  opacity: 1;
+  width: 40px;
   top: -10px;
-  transition: top 0.1s ease-in-out ;
+  transition: top 0.1s ease-in-out;
+}
 
+.imageviewermain {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.46);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.previousbutton,
+.nextbutton,
+.closebutton {
+  width: 60px;
+  position: absolute;
+}
+
+.imageviewer{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60%;
+  max-height: 80%;
+}
+
+
+.previousbutton,
+.nextbutton{
+  top: 50%;
+  transform: translateY(-50%) ;
+}
+.previousbutton{
+  left: 10%;
+}
+.nextbutton{
+  right: 10%;
+}
+
+.closebutton{
+  right: 10%;
+  top: 5%;
 }
