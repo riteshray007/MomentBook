@@ -1,9 +1,12 @@
-import React,{useRef} from 'react'
+import React,{useRef , useEffect} from 'react'
 
 export default function AlbumForm({addalbums}) {
 
       const albumref = useRef();
 
+      useEffect(()=>{
+            albumref.current.focus();
+      },[])
       
       return (
             <div className='albumformmain' >

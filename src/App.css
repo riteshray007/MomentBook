@@ -44,7 +44,7 @@
   width: 50%;
   padding: 0px 20px;
   padding-top: 10px;
-  margin: 40px 10px;
+  margin-top: 50px;
   text-align: left;
   border-radius: 20px;
   background-color: #d3d3d3;
@@ -103,6 +103,7 @@
 .albumlistmain {
   min-height: 60vh;
   /* border: 1px solid red; */
+  margin-top: 40px;
   width: 65%;
   padding: 10px 30px;
 }
