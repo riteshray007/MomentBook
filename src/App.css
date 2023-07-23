@@ -17,9 +17,11 @@
 
 .navbarmaindiv {
   /* border: 1px solid black; */
+  box-sizing: border-box;
   width: 100%;
   height: 8vh;
-  position: relative;
+  /* position: relative; */
+  padding-left: 10%;
   display: flex;
   align-items: center;
   background-color: rgba(109, 66, 140, 0.682);
@@ -27,14 +29,15 @@
 
 .navicon {
   height: 90%;
-  position: absolute;
-  left: 6%;
+  /* position: absolute; */
+  /* left: 6%; */
 }
 
 .navtitle {
-  position: absolute;
-  left: 10%;
+  /* position: absolute; */
+  /* left: 12%; */
   /* font-family: 'Lugrasimo', cursive; */
+  margin-left: 2px;
   font-family: 'Tektur', cursive;
 }
 
@@ -98,6 +101,7 @@
 
 .clearbutton {
   background-color: #e5383b;
+  margin-right: 10px;
 }
 
 .albumlistmain {
@@ -126,9 +130,10 @@
   color: white;
   border: none;
   height: 35px;
+  width: 125px;
   font-size: 18px;
   font-weight: 600;
-  padding: 2px 20px;
+  padding: 1px 15px;
   box-shadow: 2px 2px 9px -1px grey;
   border-radius: 10px;
 }
@@ -314,7 +319,7 @@
   background-size: cover;
 }
 
-.imageitem img {
+.editicon , .deleteicon {
   width: 10px;
   position: absolute;
   opacity: 0;
@@ -328,6 +333,17 @@
 
 .imageitem img:first-child {
   right: 60px;
+}
+
+.imagedisplay{
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagedisplay img{
+  width: 100%;
 }
 
 .imageformmain {
@@ -399,7 +415,7 @@
   /* display: inline; */
 }
 
-.hoveredimageitem img {
+.hoveredimageitem .editicon ,.hoveredimageitem .deleteicon {
   opacity: 1;
   width: 40px;
   top: -10px;
@@ -419,12 +435,13 @@
 
 .previousbutton,
 .nextbutton,
-.closebutton {
+.closebutton , 
+.downloadbutton {
   width: 60px;
   position: absolute;
 }
 
-.imageviewer{
+.imageviewer {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -435,18 +452,76 @@
 
 
 .previousbutton,
-.nextbutton{
+.nextbutton {
   top: 50%;
-  transform: translateY(-50%) ;
+  transform: translateY(-50%);
 }
-.previousbutton{
+
+.previousbutton {
   left: 10%;
 }
-.nextbutton{
+
+.nextbutton {
   right: 10%;
 }
 
-.closebutton{
+.closebutton {
   right: 10%;
   top: 5%;
+}
+
+.downloadbutton{
+  top: 5%;
+  left: 10%;
+}
+
+@media only screen and (max-width: 1055px) {
+  .albumformmain {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .albumformmain {
+    height: 20vh;
+  }
+
+  .inputNbuttons {
+    flex-direction: column;
+  }
+
+  .inputNbuttons div {
+    display: flex;
+    margin-top: 15px;
+  }
+
+  .albumname {
+    width: 90%;
+  }
+
+  .clearbutton {
+    display: block;
+  }
+}
+
+@media only screen and (max-width:500px) {
+
+  .addalbum,
+  .cancelbutton {
+    left: 60%;
+  }
+
+  .albumformmain {
+    width: 85%;
+  }
+
+  .albumlistmain {
+    width: 70%;
+  }
+
+  .albumlist {
+    width: 120%;
+    justify-content: left;
+  }
+
 }

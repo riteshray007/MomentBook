@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { db } from '../firebaseinit';
 import { updateDoc, doc, onSnapshot, getDoc } from 'firebase/firestore';
 
-const Defaultsrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJYMIg4H1MKoEBPkF1kWQ7ENkm2gXsgF8bsg&usqp=CAU';
+const Defaultsrc = 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
 
 export default function ImagesList({ albumid, setimagecheck }) {
 
@@ -21,16 +21,29 @@ export default function ImagesList({ albumid, setimagecheck }) {
       const [formlistdata, setformlistdata] = useState({})
       const [imageviewercheck, setimageviewer] = useState(false);
       const [imageviewerdata, setimageviewerdata] = useState('');
+      const [charinsearchbar, setcharinsearchbar] = useState('');
 
       useEffect(() => {
+            getimagesfromdb();
+      }, [])
+
+      useEffect(()=>{
+            if(searchbar){
+                  searchref.current.focus();
+            }
+      },[searchbar])
+
+
+      function getimagesfromdb() {
             onSnapshot(doc(db, "albums", albumid), (doc) => {
                   // console.log(doc.data().album);
                   setimagelist(doc.data().album);
             });
-      }, [])
+      }
 
       useEffect(() => {
-            let allimages = document.querySelectorAll('img');
+            let allimages = document.querySelectorAll('.realimage');
+            console.log('imagelist is updataed');
             for (let image of allimages) {
                   image.addEventListener('error', function handleError() {
                         image.src = Defaultsrc;
@@ -52,7 +65,7 @@ export default function ImagesList({ albumid, setimagecheck }) {
                         templist[index].name = name;
                         templist[index].url = url;
 
-                        toast.success('Images updated succesfully👌👌', {
+                        toast.success('Images updated succesfully👌', {
                               position: "top-right",
                               autoClose: 4000,
                               hideProgressBar: false,
@@ -133,6 +146,12 @@ export default function ImagesList({ albumid, setimagecheck }) {
             });
       }
 
+      async function closesearchbar() {
+            // getimagesfromdb();
+            setcharinsearchbar('');
+            setsearchbar(false);
+      }
+
       function nextImageinIL(index) {
             if (index >= imagelist.length - 1) {
                   index = 0;
@@ -183,13 +202,13 @@ export default function ImagesList({ albumid, setimagecheck }) {
                               onClick={() => setimagecheck(false)} alt='one step back button ' />
                         <h2>Images in {albumid}</h2>
                         {
-                              searchbar ? <input placeholder=' search... ' className='searchbar' ref={searchref} /> : null
+                              searchbar ? <input placeholder=' search... ' className='searchbar' ref={searchref} onChange={(e) => setcharinsearchbar(e.target.value)} /> : null
                         }
 
                         {
                               searchbar ?
                                     <img src='https://cdn-icons-png.flaticon.com/128/391/391247.png' alt='canelbutton'
-                                          className='searchbutton' onClick={() => setsearchbar(false)}
+                                          className='searchbutton' onClick={closesearchbar}
                                     /> :
                                     <img src='https://cdn-icons-png.flaticon.com/128/1296/1296902.png' className='searchbutton'
                                           alt='searchbutton' onClick={() => setsearchbar(true)} />
@@ -210,20 +229,25 @@ export default function ImagesList({ albumid, setimagecheck }) {
                         {
                               imagelist && imagelist.length > 0 ?
                                     imagelist.map((alb, i) => {
-                                          return (
+                                          if(alb.name.includes(charinsearchbar)){
 
-                                                <li key={alb.id} className={` imageitem  ${hoveron == alb.id ? 'hoveredimageitem' : ''}   `}
-                                                      onMouseEnter={() => sethoverid(alb.id)}
-                                                      onMouseLeave={() => sethoveron('')}
-                                                      onClick={() => setviewerdata(i)}
-                                                >
-                                                      <img src='https://cdn-icons-png.flaticon.com/128/4203/4203813.png' alt='editicon' onClick={(e) => handleedit(e, alb.id, i)} />
-                                                      <img src='https://cdn-icons-png.flaticon.com/128/6711/6711573.png' alt='deleteicon' onClick={(e) => handledelete(e, alb.id, i)} />
-                                                      <div className='imagedisplay' style={{ backgroundImage: `url('${alb.url}')` }} ></div>
-                                                      <h3 className='imagetitle' > {alb.name} </h3>
-                                                </li>
+                                                return (
 
-                                          )
+                                                      <li key={alb.id} className={` imageitem  ${hoveron == alb.id ? 'hoveredimageitem' : ''}   `}
+                                                            onMouseEnter={() => sethoverid(alb.id)}
+                                                            onMouseLeave={() => sethoveron('')}
+                                                            onClick={() => setviewerdata(i)}
+                                                      >
+                                                            <img src='https://cdn-icons-png.flaticon.com/128/4203/4203813.png' alt='editicon' className='editicon'  onClick={(e) => handleedit(e, alb.id, i)} />
+                                                            <img src='https://cdn-icons-png.flaticon.com/128/6711/6711573.png' alt='deleteicon' className='deleteicon' onClick={(e) => handledelete(e, alb.id, i)} />
+                                                            <div className='imagedisplay'  >
+                                                                  <img className='realimage' src={alb.url} />
+                                                            </div>
+                                                            <h3 className='imagetitle' > {alb.name} </h3>
+                                                      </li>
+
+                                                )
+                                          }
                                     }) :
                                     <h2> no images found in {albumid} </h2>
                         }
