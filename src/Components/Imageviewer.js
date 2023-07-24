@@ -5,6 +5,7 @@ export default function Imageviewer({imageurl , nextImageinIL , setimageviewer ,
 
 // pass url of the file and name of the file 
   const downloadImage = (url , name) => {
+    console.log(imageurl.name);
     saveAs(url , `${name}.jpg` )
   }
   

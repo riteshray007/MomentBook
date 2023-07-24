@@ -137,7 +137,7 @@ export default function ImagesList({ albumid, setimagecheck }) {
       //switches imageViewer on/off and send all the required data to imageviewer
       function setviewerdata(index) {
             setimageviewer(true);
-            setimageviewerdata({ url: imagelist[index].url, index });
+            setimageviewerdata({ url: imagelist[index].url, index, name: imagelist[index].name });
       }
 
       //switches form component on and off 
@@ -147,7 +147,7 @@ export default function ImagesList({ albumid, setimagecheck }) {
       }
 
       function handleedit(e, id, index) {
-            
+
             //as the parent component also have click events propagation can trigger its parents click events too 
             // hence stoppropagation stop the events listener to tigger further events
             e.stopPropagation();
@@ -199,23 +199,22 @@ export default function ImagesList({ albumid, setimagecheck }) {
       function nextImageinIL(index) {
             if (index >= imagelist.length - 1) {
                   index = 0;
-                  setimageviewerdata({ url: imagelist[index].url, index });
             }
             else {
                   index++;
-                  setimageviewerdata({ url: imagelist[index].url, index });
             }
+
+            setimageviewerdata({ url: imagelist[index].url, index, name: imagelist[index].name });
       }
 
       //this decrements the image carousel index by 1
       function previousimageinIL(index) {
             if (index <= 0) {
                   index = imagelist.length - 1;
-                  setimageviewerdata({ url: imagelist[index].url, index });
             } else {
                   index--;
-                  setimageviewerdata({ url: imagelist[index].url, index });
             }
+            setimageviewerdata({ url: imagelist[index].url, index, name: imagelist[index].name });
       }
 
 
@@ -238,7 +237,7 @@ export default function ImagesList({ albumid, setimagecheck }) {
                   />
 
                   {/* loader component (loading wheel) */}
-                  {loader? <ThreeDots
+                  {loader ? <ThreeDots
                         className="threedots"
                         height="100"
                         width="90"
@@ -248,41 +247,47 @@ export default function ImagesList({ albumid, setimagecheck }) {
                         wrapperStyle={{}}
                         wrapperClassName=""
                         visible={true}
-                  />: null }
+                  /> : null}
 
                   {/* imageform */}
                   {imageformcheck ? <Imageform addimage={addimage} editform={editform} seteditform={seteditform} formlistdata={formlistdata} /> : null}
 
-                        {/* image carousel comnponent */}
+                  {/* image carousel comnponent */}
                   {imageviewercheck ? <Imageviewer imageurl={imageviewerdata} setimageviewer={setimageviewer} nextImageinIL={nextImageinIL} previousimageinIL={previousimageinIL} /> : null}
 
                   <div className='imagelistheading'>
 
-                        <img src='https://cdn-icons-png.flaticon.com/128/4155/4155120.png' className='backbutton'
-                              onClick={() => setimagecheck(false)} alt='one step back button ' />
-                        <h2>Images in {albumid}</h2>
-                        {
-                              searchbar ? <input placeholder=' search... ' className='searchbar' ref={searchref} onChange={(e) => setcharinsearchbar(e.target.value)} /> : null
-                        }
+                        <div className='headingandback' >
 
-                        {
-                              searchbar ?
-                                    <img src='https://cdn-icons-png.flaticon.com/128/391/391247.png' alt='canelbutton'
-                                          className='searchbutton' onClick={closesearchbar}
-                                    /> :
-                                    <img src='https://cdn-icons-png.flaticon.com/128/1296/1296902.png' className='searchbutton'
-                                          alt='searchbutton' onClick={() => setsearchbar(true)} />
-                        }
+                              <img src='https://cdn-icons-png.flaticon.com/128/4155/4155120.png' className='backbutton'
+                                    onClick={() => setimagecheck(false)} alt='one step back button ' />
+                              <h2>Images in {albumid}</h2>
+                        </div>
+                        <div className='searchbarandicon' >
 
-                        {
-                              imageformcheck ?
-                                    <button className='cancelimagebutton'
-                                          onClick={() => setimageformcheck(false)}
-                                    > cancel </button> :
-                                    <button className='addimagebutton'
-                                          onClick={imageformchecker}
-                                    > Add Image </button>
-                        }
+                              {
+                                    searchbar ? <input placeholder=' search... ' className='searchbar' ref={searchref} onChange={(e) => setcharinsearchbar(e.target.value)} /> : null
+                              }
+
+                              {
+                                    searchbar ?
+                                          <img src='https://cdn-icons-png.flaticon.com/128/391/391247.png' alt='canelbutton'
+                                                className='searchbutton' onClick={closesearchbar}
+                                          /> :
+                                          <img src='https://cdn-icons-png.flaticon.com/128/1296/1296902.png' className='searchbutton'
+                                                alt='searchbutton' onClick={() => setsearchbar(true)} />
+                              }
+
+                              {
+                                    imageformcheck ?
+                                          <button className='cancelimagebutton'
+                                                onClick={() => setimageformcheck(false)}
+                                          > cancel </button> :
+                                          <button className='addimagebutton'
+                                                onClick={imageformchecker}
+                                          > Add Image </button>
+                              }
+                        </div>
                   </div>
 
                   <ul className='albumlist' >

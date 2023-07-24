@@ -7,7 +7,6 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;*/
   min-height: 100vh;
   color: #192a51;
   align-items: center;
@@ -207,29 +206,44 @@
 .imagelistheading {
   display: flex;
   /* border: 1px solid rosybrown; */
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   position: relative;
   margin-top: 70px;
 }
 
+.headingandback{
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+}
+
+.searchbarandicon{
+  /* border: 1px solid greenyellow; */
+  display: flex;
+  align-items: center;
+}
+
 .imagelistheading h2 {
-  position: absolute;
-  left: 10%;
+  /* position: absolute; */
+  /* left: 10%; */
+  margin-left: 10px;
 }
 
 .searchbutton {
   height: 30px;
-  position: absolute;
-  right: 16%;
+  /* position: absolute; */
+  /* right: 16%; */
+  margin-right: 15px;
 }
 
 .backbutton {
   height: 45px;
   -webkit-filter: drop-shadow(2px 2px 9px -1px grey);
   filter: dropShadow(22px 22px 29px 31px grey);
-  position: absolute;
-  left: 1%;
+  /* position: absolute; */
+  /* left: 1%; */
 }
 
 .addimagebutton,
@@ -242,8 +256,8 @@
   padding: 2px 20px;
   box-shadow: 2px 2px 9px -1px grey;
   border-radius: 10px;
-  position: absolute;
-  right: 0%;
+  /* position: absolute; */
+  /* right: 0%; */
   background-color: #a5f92f;
 }
 
@@ -257,13 +271,14 @@
 }
 
 .searchbar {
-  position: absolute;
-  left: 52%;
+  /* position: absolute; */
+  /* left: 52%; */
   border-radius: 10px;
   height: 27px;
   width: 220px;
   padding: 5px 10px;
   font-size: 18px;
+  margin-right: 15px;
 
 }
 
@@ -481,7 +496,17 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
+@media only screen and (max-width : 1245px){
+  .searchbar{
+    left: 40%;
+  }
+  .searchbutton{
+    left: 75%;
+  }
+  .imagelistmain{
+    width: 80%;
+  }
+}
 @media only screen and (max-width: 1055px) {
   .albumformmain {
     width: 60%;
@@ -492,7 +517,9 @@
   .albumformmain {
     height: 20vh;
   }
-
+  .imagelistmain{
+    width: 95%;
+  }
   .inputNbuttons {
     flex-direction: column;
   }
@@ -509,6 +536,21 @@
   .clearbutton {
     display: block;
   }
+}
+
+@media only screen and (max-width:695px){
+
+  .imagelistheading{
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: -10px;
+  }
+
+  .searchbarandicon{
+    margin-top:20px;
+    flex: end;
+  }
+
 }
 
 @media only screen and (max-width:500px) {
