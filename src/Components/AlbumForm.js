@@ -2,8 +2,10 @@ import React, { useRef, useEffect } from 'react'
 
 export default function AlbumForm({ addalbums }) {
 
+      // used for focusing input and get its value 
       const albumref = useRef();
 
+      //focus the input on mount
       useEffect(() => {
             albumref.current.focus();
       }, [])

@@ -1,11 +1,11 @@
-import React from 'react'
-import { useState , useEffect } from 'react';
+import React from 'react';
+//file-saver helps in saving files directly from url 
 import { saveAs } from 'file-saver';
 export default function Imageviewer({imageurl , nextImageinIL , setimageviewer ,previousimageinIL }) {
 
-
+// pass url of the file and name of the file 
   const downloadImage = (url , name) => {
-    saveAs(url , name ) // Put your image url here.
+    saveAs(url , `${name}.jpg` )
   }
   
   return (

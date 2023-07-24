@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 
 export default function Imageform({ addimage, editform, formlistdata }) {
 
+      // refs image and url input field 
       const imagename = useRef();
       const imageurl = useRef();
 
-
+      //send input values to parent component imagelist
       function imageadder() {
             if (editform) {
                   addimage(imagename.current.value, imageurl.current.value, formlistdata.index);
@@ -17,10 +18,12 @@ export default function Imageform({ addimage, editform, formlistdata }) {
             imageurl.current.value = '';
       }
 
+      // focuses imagename input after mounting 
       useEffect(()=>{
             imagename.current.focus();
       },[])
 
+      // set values of the image to be edited to the imageform component
       useEffect(() => {
             if (editform && formlistdata) {
                   imagename.current.value = formlistdata.name;
